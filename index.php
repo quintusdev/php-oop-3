@@ -31,11 +31,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-4">
-                        <?php foreach ($comunicazioni as $comunic) { ?>
-                            <div class="card">
-                                <?php echo $comunic->getRingTone()."<br>"; ?>
-                            </div>
-                        <?php } ?>
+                        <div class="card">
+
+                        </div>
                     </div>
                 </div>
             </div>

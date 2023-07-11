@@ -1,17 +1,19 @@
 <?php
     class Comunicazioni {
-            private $mittente;
-            private $titolo;
-            private $messaggio;
-            private $destinatario;
-            static private $ringtone;
-        
-            public function __construct(String $mittente, String $titolo, String $messaggio, String $destinatario, String $ringtone){
-                $this->mittente = $mittente;
-                $this->titolo = $titolo;
-                $this->messaggio = $messaggio;
-                $this->destinatario = $destinatario;
-                $this->ringtone = $ringtone;
+        private $mittente;
+        private $titolo;
+        private $messaggio;
+        private $destinatario;
+        public $ringtone;
+    
+        public function __construct(String $mittente, String $titolo, String $messaggio, String $destinatario){
+            $this->titolo = $titolo;
+            $this->messaggio = $messaggio;
+            $this->destinatario = $destinatario;
+        }
+
+        public function Invia(){
+            return 'Comunicazione Inviata!';
         }
 
         public function getMittente(){
@@ -30,8 +32,8 @@
             return $this->destinatario;
         }
 
-        public function setRingTone(){
-            return 'DRIIIN';
+        public function setRingTone($ringtone){
+            $this->ringtone = $ringtone;
         }
 
         public function getRingTone(){

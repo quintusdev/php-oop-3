@@ -2,15 +2,14 @@
     class Sms extends Comunicazioni {
         private $notifica_lett;
         private $risposta;
-        static private $ringtone;
-        static private $colorled;
+        public $ringtone;
+        static public $colorled = 'green';
 
-        function __construct(String $mittente, String $titolo, String $messaggio, String $destinatario, $notifica_lett, $risposta, $ringtone, $colorled){
+        function __construct(String $mittente, String $titolo, String $messaggio, String $destinatario, $notifica_lett, $risposta, $ringtone){
             parent::__construct($mittente, $titolo, $messaggio, $destinatario);
             $this->notifica_lett = $notifica_lett;                 
             $this->risposta = $risposta;
-            $this->ringtone = $ringtone;
-            $this->colorled = $colorled;         
+            $this->ringtone = $ringtone;       
         }
 
         public function Invia(){
@@ -21,9 +20,7 @@
             return 'Risposta inviata';
         }
 
-        public function getRingTone(){
-            return 'DRIIIN';
-        }
+       
     }
 
 ?>

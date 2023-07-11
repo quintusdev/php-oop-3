@@ -2,8 +2,8 @@
     class Notifica extends Comunicazioni {
         private $icona;
         private $risposta;
-        static private $ringtone;
-        static private $colorled;
+        public $ringtone;
+        static public $colorled = 'Blue';
 
         function __construct(String $mittente, String $titolo, String $messaggio, String $destinatario, $icona, $risposta, $ringtone, $colorled){
             parent::__construct($mittente, $titolo, $messaggio, $destinatario);   
@@ -13,9 +13,7 @@
             $this->colorled = $colorled;       
         }
 
-        public function getRingTone(){
-            return 'DRIIIN';
-        }
+        
     }
 
 ?>
