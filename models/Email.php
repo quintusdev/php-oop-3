@@ -31,10 +31,6 @@
             return $this->notifica_cons;
         }
 
-        /* public function setRingTone(){
-            return 'DRIIIN';
-        } */
-
         public function getRingTone(){
             return $this->ringtone = $ringtone;
         }
