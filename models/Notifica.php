@@ -4,11 +4,10 @@
         private $visibile;
         static public $colorled = 'Blue';
 
-        function __construct(String $mittente, String $titolo, String $messaggio, String $destinatario, $icona, $visibile, $colorled){
+        function __construct(String $mittente, String $titolo, String $messaggio, String $destinatario, $icona, $visibile){
             parent::__construct($mittente, $titolo, $messaggio, $destinatario);   
             $this->icona = $icona;                 
             $this->visibile = $visibile;
-            $this->colorled = $colorled;       
         }
 
         public function getIcona(){

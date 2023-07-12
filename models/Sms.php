@@ -4,7 +4,7 @@
         private $risposta;
         static public $colorled = 'green';
 
-        function __construct(String $mittente, String $titolo, String $messaggio, String $destinatario, $notifica_lett, $risposta){
+        function __construct(String $mittente, String $titolo, String $messaggio, String $destinatario, String $notifica_lett, String $risposta){
             parent::__construct($mittente, $titolo, $messaggio, $destinatario);
             $this->notifica_lett = $notifica_lett;                 
             $this->risposta = $risposta;  

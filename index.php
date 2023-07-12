@@ -63,25 +63,18 @@
             <hr>
             <div class="container">
                 <div class="row">
-                <?php foreach ($comunics as $comunic): ?>
+                <?php foreach ($messages as $message): ?>
                     <div class="col-4">
                         <div class="card">
-                            <h3><?php echo $comunic->getMittente()?></h3>
-                            <h4><?php echo $comunic->getTitolo()?></h4>
-                            <h4><?php echo $comunic->getMessaggio()?></h4>
-                            <h4><?php echo $comunic->getDestinatario()?></h4>
+                            <h3><?php echo $message->getMittente()?></h3>
+                            <h4><?php echo $message->getTitolo()?></h4>
+                            <h4><?php echo $message->getMessaggio()?></h4>
+                            <h4><?php echo $message->getDestinatario()?></h4>
                             <h4><?php echo Comunicazioni::$ringtone?></h4>
-                            <?php if(!is_null($comunic->getAllegato())){ ?>
-                                    <i class="fa-solid fa-paperclip" style="color: #000000;"></i><span>
-                                    <?php echo $comunic->getAllegato()->getFormato() ?></span>
-                                    <span><?php echo $comunic->getAllegato()->getDimensione() ?></span>
-                                    <span><?php echo $comunic->getAllegato()->getContenuto() ?></span>
-                            <?php } ?>
-                            <h5><?php echo $comunic->getNotificaCons() ? 'E-Mail Consegnata': 'E-Mail NON Consegnata'?></h5>
-                            <h4><?php echo Email::$colorled?></h4>
-                            <h5><?php echo $comunic->Stampa()?></h5>
-                            <h5><?php echo $comunic->Inoltra()?></h5>
-                            <h5><?php echo $comunic->Invia()?></h5>
+                            <h4><?php echo $message->getRisposta()?></h4>
+                            <h5><?php echo $message->getNotifica_lett() ? 'SMS Consegnato': 'SMS NON Consegnato'?></h5>
+                            <h4><?php echo Sms::$colorled?></h4>
+                            <h5><?php echo $message->Invia()?></h5>
                         </div>
                     </div>
                 <?php endforeach; ?> 
@@ -90,6 +83,26 @@
             <hr>
             <h2 class="text-center">NOTIFICHE</h2>
             <hr>
+            <div class="container">
+                <div class="row">
+                <?php foreach ($notificas as $notifica): ?>
+                    <div class="col-4">
+                        <div class="card">
+                            <h3><?php echo $notifica->getMittente()?></h3>
+                            <h4><?php echo $notifica->getTitolo()?></h4>
+                            <h4><?php echo $notifica->getMessaggio()?></h4>
+                            <h4><?php echo $notifica->getDestinatario()?></h4>
+                            <h4><?php echo Comunicazioni::$ringtone?></h4>
+                            <h4><?php echo $notifica->getIcona()?></h4>
+                            <h5><?php echo $notifica->getVisibile() ? 'Visibile': 'NON Visibile'?></h5>
+                            <h4><?php echo $notifica->onClick()?></h4>
+                            <h4><?php echo Notifica::$colorled?></h4>
+                            <h5><?php echo $notifica->Invia()?></h5>
+                        </div>
+                    </div>
+                <?php endforeach; ?> 
+                </div>
+            </div>
         </main>
     </body>
 
