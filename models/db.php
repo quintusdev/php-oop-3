@@ -1,21 +1,24 @@
 <?php
 
-   /*  $comunic = [
-        new Notifica('Antonello', 'Prima Mail', 'Ti invio la prima mail', ),
-        new Email ('Antonello', 'Prima Mail', 'Ti invio la prima mail', 'Marco Quintus', 'NO', true, 'no', 'no', 'DRIIIN','white'),
-        new Sms('Fabrizio', 'Aiuto', 'Fai bene l\'esercizio', 'Marco Quintus', 'ok', 'Da inviare', 'DRIIIN', 'ROSSO'),
-    ]; */
+    $Mail1 = new Email('Antonello', 'Prima Mail', 'Ti invio la prima mail', 'Marco Quintus', true);
+    $allegato = new Allegato('PDF', 12.25, 'PROVA ALLEGATO');
+    $Mail1->setAllegato($allegato);
 
-    $comunicazionegen = new Comunicazioni('Antonello', 'Prima Mail', 'Ti invio la prima mail', 'Marco Quintus');
-    echo 'Prima: '.$comunicazionegen->ringtone;
-    $comunicazionegen->setRingTone('DRRRIIINN');
-    echo 'Dopo: '.$comunicazionegen->ringtone;
+    $Mail2 = new Email('Antonello', 'Prima Mail', 'Ti invio la prima mail', 'Marco Quintus', false);
+    $Mail3 = new Email('Antonello', 'Prima Mail', 'Ti invio la prima mail', 'Marco Quintus', false);
+    $allegato = new Allegato('JPG', 25.25, 'img ALLEGATO');
+    $Mail3->setAllegato($allegato);
 
-    $allegato1 = new Allegato('PDF', 12.25, 'PROVA ALLEGATO');
 
-    $comunicazioneMail = new Email('Antonello', 'Prima Mail', 'Ti invio la prima mail', 'Marco Quintus', $allegato1, true, 'no', 'no', 'DRIIIN','white');
-    var_dump($comunicazioneMail);
-    echo $comunicazioneMail->Invia();
-    echo $comunicazioneMail->Stampa();
-    echo $comunicazioneMail->Invia();
+    $comunics = [
+        $Mail1,
+        $Mail2,
+        $Mail3
+    ];
+
+
+
+    $sms1 = new Sms('Antonello', 'Prima Mail', 'Ti invio la prima mail', 'Marco Quintus', false);
+    $sms2 = new Sms('Antonello', 'Prima Mail', 'Ti invio la prima mail', 'Marco Quintus', false);
+    $sms3 = new Sms('Antonello', 'Prima Mail', 'Ti invio la prima mail', 'Marco Quintus', false);
 ?>

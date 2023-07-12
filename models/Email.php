@@ -1,55 +1,40 @@
 <?php
     class Email extends Comunicazioni {
+        private $notifica_cons;
         private $allegato;
-        public $notifica_cons;
-        private $inoltra;
-        private $stampa;
-        public $ringtone;
         static public $colorled = 'yellow';
 
-        function __construct(String $mittente, String $titolo, String $messaggio, String $destinatario, Allegato $allegato, String $notifica_cons, String $inoltra, String $stampa){
+        function __construct(String $mittente, String $titolo, String $messaggio, String $destinatario, String $notifica_cons){
             parent::__construct($mittente, $titolo, $messaggio, $destinatario);
-            $this->allegato = $allegato;
-            $this->notifica_cons = $notifica_cons;  
-            $this->inoltra = $inoltra;                 
-            $this->stampa = $stampa;
+            $this->notifica_cons = $notifica_cons;
         }
 
         public function Invia(){
             return 'E-Mail Inviata!';
         }
 
-        public function Stampa(){
-            return 'E-mail stampata';
+        public function Inoltra(){
+            return 'E-Mail Inoltrata!';
         }
 
-        public function Inoltra(){
-            return 'E-mail inoltrata';
+        public function Stampa(){
+            return 'E-Mail Stampata!';
         }
 
         public function getNotificaCons(){
             return $this->notifica_cons;
         }
 
-        public function getRingTone(){
-            return $this->ringtone = $ringtone;
+        public function getAllegato(){
+            return $this->allegato;
         }
+
+        public function setAllegato($allegato){
+            return $this->allegato = $allegato;
+        }
+
+        
         
     }
-
-    class Allegato{
-        private $formato;
-        private $dimensione;
-        private $contenuto;
-
-        function __construct(String $formato, Float $dimensione, String $contenuto){
-            $this->formato = $formato;  
-            $this->dimensione = $dimensione;  
-            $this->contenuto = $contenuto;                 
-        }
-
-
-    }
-
 
 ?>

@@ -4,9 +4,10 @@
         private $titolo;
         private $messaggio;
         private $destinatario;
-        public $ringtone;
+        static public $ringtone = 'DRIIIIN';
     
         public function __construct(String $mittente, String $titolo, String $messaggio, String $destinatario){
+            $this->mittente = $mittente;
             $this->titolo = $titolo;
             $this->messaggio = $messaggio;
             $this->destinatario = $destinatario;
@@ -30,14 +31,6 @@
 
         public function getDestinatario(){
             return $this->destinatario;
-        }
-
-        public function setRingTone($ringtone){
-            $this->ringtone = $ringtone;
-        }
-
-        public function getRingTone(){
-            return $this->ringtone;
         }
 
     }

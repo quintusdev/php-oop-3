@@ -3,6 +3,7 @@
     require_once __DIR__."/models/Email.php";
     require_once __DIR__."/models/Sms.php";
     require_once __DIR__."/models/Notifica.php";
+    require_once __DIR__."/models/Allegato.php";
     require_once __DIR__."/models/db.php";
 
 ?>
@@ -25,18 +26,70 @@
     <body>
         <header class="bg-dark text-white p-5 mb-5 text-center">    
             <h1>Sistema Comunicazioni</h1>
+            
         </header>
 
         <main>
+            <h2 class="text-center">E-MAIL</h2>
+            <hr>
             <div class="container">
                 <div class="row">
+                <?php foreach ($comunics as $comunic): ?>
                     <div class="col-4">
                         <div class="card">
-
+                            <h3><?php echo $comunic->getMittente()?></h3>
+                            <h4><?php echo $comunic->getTitolo()?></h4>
+                            <h4><?php echo $comunic->getMessaggio()?></h4>
+                            <h4><?php echo $comunic->getDestinatario()?></h4>
+                            <h4><?php echo Comunicazioni::$ringtone?></h4>
+                            <?php if(!is_null($comunic->getAllegato())){ ?>
+                                    <i class="fa-solid fa-paperclip" style="color: #000000;"></i><span>
+                                    <?php echo $comunic->getAllegato()->getFormato() ?></span>
+                                    <span><?php echo $comunic->getAllegato()->getDimensione() ?></span>
+                                    <span><?php echo $comunic->getAllegato()->getContenuto() ?></span>
+                            <?php } ?>
+                            <h5><?php echo $comunic->getNotificaCons() ? 'E-Mail Consegnata': 'E-Mail NON Consegnata'?></h5>
+                            <h4><?php echo Email::$colorled?></h4>
+                            <h5><?php echo $comunic->Stampa()?></h5>
+                            <h5><?php echo $comunic->Inoltra()?></h5>
+                            <h5><?php echo $comunic->Invia()?></h5>
                         </div>
                     </div>
+                <?php endforeach; ?> 
                 </div>
             </div>
+            <hr>
+            <h2 class="text-center">SMS</h2>
+            <hr>
+            <div class="container">
+                <div class="row">
+                <?php foreach ($comunics as $comunic): ?>
+                    <div class="col-4">
+                        <div class="card">
+                            <h3><?php echo $comunic->getMittente()?></h3>
+                            <h4><?php echo $comunic->getTitolo()?></h4>
+                            <h4><?php echo $comunic->getMessaggio()?></h4>
+                            <h4><?php echo $comunic->getDestinatario()?></h4>
+                            <h4><?php echo Comunicazioni::$ringtone?></h4>
+                            <?php if(!is_null($comunic->getAllegato())){ ?>
+                                    <i class="fa-solid fa-paperclip" style="color: #000000;"></i><span>
+                                    <?php echo $comunic->getAllegato()->getFormato() ?></span>
+                                    <span><?php echo $comunic->getAllegato()->getDimensione() ?></span>
+                                    <span><?php echo $comunic->getAllegato()->getContenuto() ?></span>
+                            <?php } ?>
+                            <h5><?php echo $comunic->getNotificaCons() ? 'E-Mail Consegnata': 'E-Mail NON Consegnata'?></h5>
+                            <h4><?php echo Email::$colorled?></h4>
+                            <h5><?php echo $comunic->Stampa()?></h5>
+                            <h5><?php echo $comunic->Inoltra()?></h5>
+                            <h5><?php echo $comunic->Invia()?></h5>
+                        </div>
+                    </div>
+                <?php endforeach; ?> 
+                </div>
+            </div>
+            <hr>
+            <h2 class="text-center">NOTIFICHE</h2>
+            <hr>
         </main>
     </body>
 
